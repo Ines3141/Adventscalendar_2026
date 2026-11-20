@@ -3,5 +3,5 @@
 // Use 0 to 24 stars. Highest scores are displayed first automatically.
 window.LUMI_LEADERBOARD = [
   { name: "Me :)", stars: 0 }
-  // { name: "Ben", stars: 8 },
+  { name: "Estelle", stars: 0 },
 ];
