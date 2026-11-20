@@ -1,0 +1,16 @@
+LUMI ADVENTSKALENDER – EINFACHE HTML/CSS/JS-VERSION
+
+1. Ordner in Visual Studio Code öffnen.
+2. index.html per Doppelklick in Chrome öffnen. Kein npm, kein Node.js nötig.
+3. Texte der Rätsel: script.js öffnen und nach RIDDLE_TEXT suchen.
+4. Rätselbilder: riddles/day-01-de.png, day-01-en.png usw. ersetzen.
+   Gleiche Dateinamen verwenden. PNG komplett sichtbar, ohne Überlagerungen.
+5. Rangliste: leaderboard.js öffnen und Namen und Sterne eintragen.
+   Beispiel: { name: "Anna", stars: 12 },
+   Kein leaderboard.json und kein Server zum Laden der Rangliste nötig.
+6. Styling: style.css.
+7. Auf Netlify: den INHALT dieses Ordners hochladen, index.html muss im Hauptverzeichnis liegen.
+
+WICHTIG: Bei späteren Änderungen die neueste Version des gesamten Ordners hochladen,
+damit deine eigenen Anpassungen erhalten bleiben. Die Musik kann erst nach einer
+Browser-Interaktion starten (Browserregel).

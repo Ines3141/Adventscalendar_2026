@@ -1,0 +1,1823 @@
+:root {
+    font-family: Georgia,"Times New Roman",serif;
+    color: #253c52;
+    background: #091d33;
+    font-synthesis: none
+}
+
+* {
+    box-sizing: border-box
+}
+
+body {
+    margin: 0;
+    min-height: 100vh
+}
+
+button, input {
+    font: inherit
+}
+
+button {
+    cursor: pointer
+}
+
+    button:focus-visible, input:focus-visible {
+        outline: 3px solid #e8b85b;
+        outline-offset: 3px
+    }
+
+.welcome-page, .calendar-page {
+    min-height: 100vh;
+    background: radial-gradient(ellipse at 50% 15%,#355d78 0%,#16364f 42%,#091c32 100%);
+    color: #f7f1e6;
+    position: relative;
+    overflow: hidden
+}
+
+    .welcome-page:before, .calendar-page:before {
+        content: "✧  ❄       ✦    ❄         ✧       ❄        ✦       ❄       ✧";
+        position: absolute;
+        top: 12%;
+        left: 0;
+        right: 0;
+        opacity: .19;
+        text-align: center;
+        font-size: 32px;
+        letter-spacing: 24px;
+        pointer-events: none
+    }
+
+.welcome-page {
+    display: grid;
+    place-items: center;
+    padding: 24px
+}
+
+.welcome-panel {
+    width: min(560px,100%);
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    background: linear-gradient(160deg,rgba(248,244,232,.98),rgba(231,239,241,.97));
+    color: #29415b;
+    border: 2px solid #caa56d;
+    border-radius: 24px;
+    padding: 32px clamp(18px,5vw,52px);
+    box-shadow: 0 22px 70px #03111e99
+}
+
+.brand {
+    font-size: clamp(13px,2vw,18px);
+    letter-spacing: .11em;
+    color: #e4c28a;
+    text-align: center
+}
+
+.welcome-panel .brand {
+    color: #8c6941
+}
+
+.elf {
+    object-fit: contain;
+    filter: drop-shadow(0 12px 18px #102f4344)
+}
+
+.elf-big {
+    height: 190px;
+    width: 210px;
+    display: block;
+    margin: 10px auto
+}
+
+.elf-small {
+    height: 124px;
+    width: 130px;
+    flex-shrink: 0
+}
+
+.welcome-panel h1 {
+    font-size: clamp(27px,4vw,39px);
+    margin: 8px 0
+}
+
+.welcome-panel p {
+    font-size: 17px;
+    line-height: 1.55
+}
+
+.welcome-panel label {
+    display: block;
+    font-weight: bold;
+    margin: 24px 0 8px
+}
+
+.welcome-panel input {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    margin: auto;
+    padding: 13px 15px;
+    border: 1px solid #a9b7bc;
+    border-radius: 10px;
+    background: #fff;
+    color: #263f55;
+    text-align: center
+}
+
+.welcome-panel small {
+    display: block;
+    margin: 8px 0 20px;
+    color: #647480
+}
+
+.welcome-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap
+}
+
+.gold-button {
+    background: linear-gradient(#f4d99b,#d4a65e);
+    border: 1px solid #b88d51;
+    color: #28394c;
+    border-radius: 12px;
+    padding: 14px 23px;
+    font-weight: bold;
+    box-shadow: 0 5px 0 #8e683d66
+}
+
+.text-button, .language-button {
+    background: none;
+    border: none;
+    color: #49647a;
+    padding: 12px
+}
+
+.language-button {
+    margin-top: 12px;
+    text-decoration: underline
+}
+
+.snow-fall {
+    position: absolute;
+    inset: 8% 0 auto;
+    text-align: center;
+    letter-spacing: 4vw;
+    opacity: .25
+}
+
+.calendar-page {
+    padding: 24px clamp(16px,5vw,64px) 45px
+}
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    position: relative;
+    z-index: 1
+}
+
+.top-actions {
+    display: flex;
+    gap: 8px
+}
+
+    .top-actions button, .calendar-footer button {
+        background: #ffffff17;
+        color: #f6ead5;
+        border: 1px solid #ffffff55;
+        border-radius: 9px;
+        padding: 9px 13px
+    }
+
+.calendar-heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    text-align: left;
+    margin: 24px auto 25px;
+    max-width: 750px;
+    position: relative
+}
+
+    .calendar-heading h1 {
+        font-size: clamp(29px,5vw,49px);
+        margin: 4px 0 8px;
+        color: #ffe1a5
+    }
+
+    .calendar-heading p {
+        margin: 0;
+        color: #d9e6e8
+    }
+
+.eyebrow {
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    font-size: 12px
+}
+
+.doors {
+    display: grid;
+    grid-template-columns: repeat(6,minmax(0,1fr));
+    gap: clamp(8px,1.8vw,20px);
+    max-width: 1040px;
+    margin: 0 auto;
+    position: relative
+}
+
+.door {
+    height: clamp(98px,13vw,152px);
+    border: 2px solid #d2b478;
+    border-radius: 54px 54px 10px 10px;
+    background: linear-gradient(145deg,#40657a,#24445f 52%,#132f49);
+    color: #ffdf9f;
+    box-shadow: inset 0 0 0 5px #ffffff13,0 7px 18px #0005;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    transition: transform .2s,box-shadow .2s
+}
+
+    .door:not(.locked):hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 26px #e4c77b44
+    }
+
+    .door strong {
+        font-size: clamp(28px,4vw,48px);
+        font-weight: normal
+    }
+
+.door-ornament, .door-bottom {
+    font-size: 19px
+}
+
+.door.locked {
+    opacity: .48;
+    cursor: not-allowed
+}
+
+.door.sent {
+    border-color: #ffe3a6
+}
+
+.calendar-footer {
+    max-width: 1040px;
+    margin: 24px auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    align-items: center;
+    font: 14px system-ui,sans-serif
+}
+
+    .calendar-footer label {
+        display: flex;
+        align-items: center;
+        gap: 8px
+    }
+
+.modal-open {
+    overflow: hidden
+}
+
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: #03121fc9;
+    z-index: 10;
+    display: grid;
+    place-items: center;
+    padding: 15px;
+    overflow: auto
+}
+
+.modal-card {
+    position: relative;
+    background: #f5f0e6;
+    color: #2a4257;
+    border: 3px solid #d1b783;
+    border-radius: 17px;
+    box-shadow: 0 24px 80px #0009;
+    max-width: min(670px,100%);
+    width: 100%;
+    max-height: calc(100dvh - 30px);
+    overflow: auto;
+    padding: clamp(20px,4vw,34px);
+    text-align: center
+}
+
+.close {
+    position: sticky;
+    top: 0;
+    float: right;
+    z-index: 2;
+    width: 38px;
+    height: 38px;
+    border: 1px solid #c2b49a;
+    border-radius: 50%;
+    background: #fff;
+    color: #37485a;
+    font: 28px Arial,sans-serif;
+    line-height: 30px
+}
+
+.door-modal-heading {
+    padding: 20px 10px 8px
+}
+
+    .door-modal-heading .elf {
+        display: block;
+        margin: 5px auto 0
+    }
+
+    .door-modal-heading h2 {
+        font-size: clamp(26px,4vw,36px);
+        margin: 8px 0
+    }
+
+    .door-modal-heading p {
+        line-height: 1.6;
+        max-width: 440px;
+        margin: 0 auto 24px
+    }
+
+.open-riddle {
+    display: block;
+    margin: 0 auto 25px;
+    min-width: 200px
+}
+
+.send-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 17px 0;
+    border-top: 1px solid #c9bba6;
+    font-weight: bold;
+    cursor: pointer
+}
+
+    .send-row input {
+        width: 21px;
+        height: 21px;
+        accent-color: #537a73
+    }
+
+.send-celebration {
+    display: none;
+    background: #e9f0e6;
+    border: 1px solid #bfd0b9;
+    border-radius: 12px;
+    padding: 12px;
+    flex-direction: column;
+    gap: 5px
+}
+
+    .send-celebration.show {
+        display: flex;
+        animation: pop .45s ease-out
+    }
+
+    .send-celebration .sparkles {
+        font-size: 32px;
+        color: #bc9654;
+        animation: twinkle 1.8s infinite alternate
+    }
+
+    .send-celebration small {
+        font: 12px system-ui;
+        color: #667b79
+    }
+
+.paper-tools {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 4px 50px 14px 0
+}
+
+    .paper-tools button {
+        border: 1px solid #c3b393;
+        border-radius: 7px;
+        background: #fff;
+        padding: 7px 10px;
+        color: #344b5e
+    }
+
+.a4-paper {
+    width: min(100%,465px);
+    aspect-ratio: 210/297;
+    margin: auto;
+    background: #fff;
+    border: 1px solid #d6d4cc;
+    box-shadow: 0 6px 20px #0002;
+    position: relative;
+    overflow: hidden
+}
+
+    .a4-paper img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: none
+    }
+
+.a4-placeholder {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 25px;
+    color: #84939b
+}
+
+    .a4-placeholder span {
+        font-size: 22px
+    }
+
+    .a4-placeholder small {
+        max-width: 260px;
+        line-height: 1.5
+    }
+
+.a4-star {
+    font-size: 64px;
+    color: #b2cbd6
+}
+
+.modal-hint {
+    font-size: 12px;
+    color: #6b7880
+}
+
+@keyframes pop {
+    from {
+        transform: scale(.88);
+        opacity: .2
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1
+    }
+}
+
+@keyframes twinkle {
+    to {
+        opacity: .4;
+        transform: scale(1.1)
+    }
+}
+
+@media(max-width:650px) {
+    .doors {
+        grid-template-columns: repeat(4,minmax(0,1fr))
+    }
+
+    .door {
+        height: 112px
+    }
+
+    .topbar {
+        flex-direction: column
+    }
+
+    .calendar-heading {
+        gap: 5px
+    }
+
+    .elf-small {
+        height: 92px;
+        width: 95px
+    }
+
+    .calendar-footer {
+        align-items: flex-start;
+        flex-direction: column
+    }
+
+    .modal-card {
+        padding: 16px
+    }
+
+    .door-modal-heading {
+        padding-top: 10px
+    }
+}
+
+@media(max-width:360px) {
+    .doors {
+        gap: 7px
+    }
+
+    .door {
+        height: 90px
+    }
+
+        .door strong {
+            font-size: 27px
+        }
+}
+
+/* Transparent character and gentle snowfall */
+.elf-big {
+    height: 210px;
+    width: 230px
+}
+
+.elf-small {
+    height: 126px;
+    width: 140px
+}
+
+.floating-snow {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0
+}
+
+    .floating-snow i {
+        position: absolute;
+        top: -10%;
+        left: var(--x);
+        font: normal 17px Georgia,serif;
+        color: #e4f6ff;
+        opacity: .32;
+        animation: snowdrift var(--t) linear infinite;
+        animation-delay: calc(-1 * var(--d));
+        text-shadow: 0 0 12px #cbe9ff
+    }
+
+@keyframes snowdrift {
+    0% {
+        transform: translate3d(-20px,-10vh,0) rotate(0);
+        opacity: 0
+    }
+
+    12% {
+        opacity: .32
+    }
+
+    85% {
+        opacity: .24
+    }
+
+    100% {
+        transform: translate3d(48px,120vh,0) rotate(170deg);
+        opacity: 0
+    }
+}
+
+.sound-toggle {
+    border: 1px solid #cbb88e;
+    background: #ffffff23;
+    border-radius: 10px;
+    padding: 8px 12px;
+    min-width: 42px;
+    color: inherit
+}
+
+.welcome-panel .sound-toggle {
+    margin: 8px auto 0;
+    display: block;
+    color: #2b465a
+}
+/* Door hinge: face rotates around its left edge, exposing the dark doorway */
+.door {
+    position: relative;
+    perspective: 800px;
+    overflow: visible;
+    transform-style: preserve-3d;
+    background: radial-gradient(ellipse at center,#bfa36e 0%,#1d3044 48%,#081725 100%)
+}
+
+.door-face {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(145deg,#40657a,#24445f 52%,#132f49);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    transform-origin: left center;
+    backface-visibility: hidden;
+    transition: transform .75s cubic-bezier(.3,.05,.18,1);
+    box-shadow: inset 0 0 0 5px #ffffff13,2px 3px 8px #0005
+}
+
+.door-knob {
+    position: absolute;
+    right: 11px;
+    top: 53%;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #e9c67c;
+    box-shadow: 0 0 4px #fff7
+}
+
+.door.opening {
+    z-index: 4
+}
+
+    .door.opening .door-face {
+        transform: rotateY(-105deg)
+    }
+
+@media(prefers-reduced-motion:reduce) {
+    .floating-snow i {
+        animation: none;
+        top: calc(var(--i)*4%)
+    }
+
+    .door-face {
+        transition: none
+    }
+}
+
+/* Lumi feels present: slow breathing and occasional curious tilts. */
+.elf {
+    transform-origin: 50% 85%;
+    animation: lumi-breathe 4.6s ease-in-out infinite,lumi-curious 11s ease-in-out infinite;
+    will-change: transform
+}
+
+.door-modal-heading .elf {
+    animation: lumi-greet 1.5s ease-out both,lumi-breathe 4.6s ease-in-out 1.5s infinite
+}
+
+@keyframes lumi-breathe {
+    0%,100% {
+        translate: 0 0;
+        scale: 1
+    }
+
+    50% {
+        translate: 0 -5px;
+        scale: 1.018
+    }
+}
+
+@keyframes lumi-curious {
+    0%,34%,57%,100% {
+        rotate: 0deg
+    }
+
+    42% {
+        rotate: 3deg
+    }
+
+    49% {
+        rotate: -2deg
+    }
+}
+
+@keyframes lumi-greet {
+    0% {
+        opacity: .7;
+        rotate: -8deg;
+        translate: 0 9px
+    }
+
+    40% {
+        opacity: 1;
+        rotate: 5deg;
+        translate: 0 -8px
+    }
+
+    75% {
+        rotate: -3deg
+    }
+
+    100% {
+        rotate: 0;
+        translate: 0 0
+    }
+}
+
+@media(prefers-reduced-motion:reduce) {
+    .elf, .door-modal-heading .elf {
+        animation: none !important
+    }
+}
+
+/* Bilingual opening cinematic */
+.film-page {
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: radial-gradient(circle at 50% 20%,#315a78,#0d203d 75%);
+    color: #fff4d8
+}
+
+.film-panel {
+    width: min(100%,920px);
+    text-align: center
+}
+
+    .film-panel h1 {
+        font-family: Georgia,serif;
+        font-size: clamp(21px,4vw,36px);
+        margin: 0 0 16px;
+        color: #ffe3a1
+    }
+
+    .film-panel video {
+        display: block;
+        width: 100%;
+        aspect-ratio: 16/9;
+        object-fit: contain;
+        background: #07172b;
+        border: 3px solid #d6b776;
+        border-radius: 15px;
+        box-shadow: 0 14px 50px #0007
+    }
+
+.film-story {
+    max-width: 660px;
+    margin: 18px auto;
+    font-size: clamp(15px,2.4vw,20px);
+    line-height: 1.55
+}
+
+.film-panel .gold-button {
+    margin: 4px auto 12px;
+    display: inline-block
+}
+
+@media(max-width:500px) {
+    .film-page {
+        padding: 10px
+    }
+
+    .film-panel h1 {
+        margin-bottom: 10px
+    }
+
+    .film-story {
+        margin: 12px auto
+    }
+}
+
+/* Cinema mode: edge-to-edge viewport on desktop and phones. Keep the whole 16:9 film visible. */
+.film-page {
+    position: fixed;
+    inset: 0;
+    min-height: 100dvh;
+    width: 100%;
+    padding: 0;
+    display: flex;
+    align-items: stretch;
+    justify-content: stretch;
+    background: #050c17;
+    overflow: auto;
+    z-index: 20
+}
+
+.film-panel {
+    position: relative;
+    width: 100%;
+    max-width: none;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: env(safe-area-inset-top) max(8px,env(safe-area-inset-right)) env(safe-area-inset-bottom) max(8px,env(safe-area-inset-left));
+    gap: clamp(4px,1vh,12px)
+}
+
+    .film-panel h1 {
+        font-size: clamp(16px,2.4vw,27px);
+        margin: 0
+    }
+
+    .film-panel video {
+        width: 100%;
+        height: auto;
+        max-height: calc(100dvh - 155px);
+        aspect-ratio: 16/9;
+        object-fit: contain;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+        background: #050c17
+    }
+
+.film-story {
+    margin: 0 auto;
+    font-size: clamp(13px,1.5vw,17px);
+    line-height: 1.3;
+    max-width: 850px
+}
+
+.film-panel .gold-button {
+    margin: 0
+}
+
+@media (max-width:650px) and (orientation:portrait) {
+    .film-panel {
+        justify-content: center
+    }
+
+        .film-panel video {
+            width: 100%;
+            max-height: 65dvh
+        }
+
+    .film-story {
+        padding: 0 8px;
+        font-size: 14px
+    }
+}
+
+@media (max-height:460px) and (orientation:landscape) {
+    .film-panel {
+        gap: 2px
+    }
+
+        .film-panel h1 {
+            font-size: 15px
+        }
+
+        .film-panel video {
+            max-height: calc(100dvh - 85px)
+        }
+
+    .film-story {
+        font-size: 12px
+    }
+
+    .film-panel .gold-button {
+        padding: 6px 14px
+    }
+}
+
+/* Film skip is available but intentionally understated; the story takes visual priority. */
+.film-panel .film-skip-button {
+    background: transparent;
+    border: 0;
+    color: #c4d0d7;
+    opacity: .48;
+    font: 12px system-ui,sans-serif;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    padding: 8px 12px;
+    margin: 0;
+    transition: opacity .2s
+}
+
+    .film-panel .film-skip-button:hover, .film-panel .film-skip-button:focus-visible {
+        opacity: 1;
+        color: #fff4d8
+    }
+
+@media(max-width:650px) {
+    .film-panel .film-skip-button {
+        font-size: 11px;
+        padding: 7px
+    }
+}
+
+/* Prelaunch tear-off countdown and manual star leaderboard */
+.tear-countdown {
+    position: relative;
+    width: min(100%,360px);
+    margin: 24px auto;
+    padding: 22px 18px 16px;
+    text-align: center;
+    background: linear-gradient(155deg,#fff8e8,#f5e5c4);
+    color: #50361f;
+    border: 3px solid #d5ad66;
+    border-radius: 16px;
+    box-shadow: 0 12px 26px #26130655;
+    overflow: hidden
+}
+
+.tear-pin {
+    position: absolute;
+    top: 7px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #ad6d28
+}
+
+.tear-top {
+    font-weight: 800;
+    letter-spacing: .18em;
+    font-size: .78rem;
+    margin-top: 9px
+}
+
+.tear-number {
+    font-family: Georgia,serif;
+    font-size: clamp(5rem,15vw,7rem);
+    line-height: 1.12;
+    font-weight: bold;
+    color: #9e392a;
+    text-shadow: 1px 2px #f4ce90
+}
+
+.tear-bottom {
+    font-size: .85rem;
+    font-weight: 800;
+    letter-spacing: .07em
+}
+
+.tear-perforation {
+    margin: 12px -12px 8px;
+    color: #bd9360;
+    letter-spacing: .08em
+}
+
+.tear-countdown p {
+    color: #694e33 !important;
+    margin: 7px 0 12px !important
+}
+
+.countdown-share {
+    background: #8a3c30;
+    color: #fff;
+    border: 0;
+    border-radius: 22px;
+    padding: 11px 20px;
+    font-weight: 700;
+    cursor: pointer;
+    min-height: 44px
+}
+
+.leaderboard {
+    width: min(100% - 28px,840px);
+    margin: 18px auto 26px;
+    padding: 22px;
+    border: 1px solid #dcb87788;
+    border-radius: 20px;
+    background: linear-gradient(140deg,#352b38e8,#463c3beb);
+    box-shadow: 0 12px 28px #130e1b50;
+    color: #fff7e6
+}
+
+.leaderboard-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap
+}
+
+.leaderboard h2 {
+    font-family: Georgia,serif;
+    font-size: clamp(1.2rem,3vw,1.8rem);
+    margin: 5px 0
+}
+
+.leaderboard p {
+    margin: 10px 0;
+    color: #e8d8bf;
+    font-size: .92rem
+}
+
+.leaderboard-heading button {
+    padding: 10px 14px;
+    border: 1px solid #d3b67a;
+    border-radius: 20px;
+    background: #57463b;
+    color: #fff8e6;
+    cursor: pointer;
+    min-height: 44px
+}
+
+.leaderboard-list {
+    display: grid;
+    gap: 8px;
+    margin-top: 14px
+}
+
+.leaderboard-entry {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #ffffff12;
+    border-radius: 12px;
+    padding: 11px 13px
+}
+
+    .leaderboard-entry strong {
+        flex: 1;
+        overflow-wrap: anywhere
+    }
+
+.leaderboard-rank {
+    min-width: 35px
+}
+
+.leaderboard-empty {
+    text-align: center;
+    padding: 20px;
+    color: #f2e3cb
+}
+
+@media(max-width:540px) {
+    .leaderboard {
+        padding: 15px;
+        width: calc(100% - 24px)
+    }
+
+    .tear-countdown {
+        width: min(100% - 20px,330px)
+    }
+}
+
+/* Larger readable A4 preview: use the available desktop viewport, while keeping print exact. */
+.modal-card:has(.a4-paper) {
+    max-width: min(1040px,calc(100vw - 28px));
+    padding: clamp(10px,2vw,24px)
+}
+
+.a4-paper {
+    width: min(100%,720px);
+    height: auto;
+    aspect-ratio: 210/297
+}
+
+    .a4-paper img {
+        object-fit: fill
+    }
+
+.peek-banner {
+    max-width: 1040px;
+    margin: 10px auto 24px;
+    text-align: center;
+    background: #f8e7bd;
+    color: #543e2b;
+    padding: 12px;
+    border-radius: 12px
+}
+
+    .peek-banner button {
+        border: 1px solid #a88a53;
+        border-radius: 9px;
+        background: #fff7e8;
+        padding: 7px 12px;
+        margin-left: 10px;
+        color: #543e2b
+    }
+
+@media(max-width:650px) {
+    .modal-card:has(.a4-paper) {
+        padding: 8px
+    }
+
+    .a4-paper {
+        width: 100%
+    }
+}
+
+
+/* A4 puzzle fills the available desktop viewing area; exact A4 when printed. */
+.modal-card:has(.a4-paper) {
+    max-width: min(1240px,calc(100vw - 16px));
+    padding: 10px
+}
+
+.a4-paper {
+    width: min(100%,860px);
+    max-width: none;
+    aspect-ratio: 210/297;
+    height: auto
+}
+
+    .a4-paper img {
+        object-fit: fill
+    }
+
+
+    /* Riddle 2: code-rendered A4 landscape, independent non-overlapping regions. */
+    .a4-paper.a4-landscape {
+        aspect-ratio: 297/210;
+        width: min(100%,1050px);
+        height: auto;
+        overflow: hidden;
+        background: #fbf5e7;
+        border: 2px solid #305744;
+        box-sizing: border-box
+    }
+
+.riddle-page-inner {
+    height: 100%;
+    width: 100%;
+    aspect-ratio: 297/210;
+    display: grid;
+    grid-template-rows: auto auto minmax(0,1fr) auto;
+    gap: 1.5%;
+    padding: 2.3%;
+    box-sizing: border-box;
+    background: #fbf5e7;
+    color: #294f40;
+    min-height: 0
+}
+
+.riddle-header {
+    background: #285443;
+    color: white;
+    text-align: center;
+    padding: 1.4% 2%;
+    border-radius: 5px;
+    min-height: 0
+}
+
+.riddle-kicker {
+    font: 600 clamp(7px,1.1vw,13px)/1.2 Arial,sans-serif;
+    letter-spacing: .1em
+}
+
+.riddle-header h2 {
+    font-size: clamp(15px,2.6vw,32px);
+    line-height: 1.15;
+    margin: .3% 0 0;
+    color: #fff
+}
+
+.riddle-instructions {
+    font: 600 clamp(9px,1.25vw,17px)/1.25 Georgia,serif;
+    text-align: center;
+    margin: 0
+}
+
+.riddle-picture-area {
+    min-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid #dfd5bd;
+    padding: 1%;
+    box-sizing: border-box
+}
+
+.a4-paper .riddle-pictures {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    min-width: 0;
+    min-height: 0
+}
+
+.riddle-hint {
+    font: italic clamp(9px,1.15vw,16px)/1.2 Georgia,serif;
+    text-align: center;
+    color: #9c3534;
+    margin: 0
+}
+
+/* Preserve portrait printing for the existing Day 1 artwork. */
+
+
+
+
+/* PPT source slides are the sole puzzle artwork: no HTML overlay or cropping. */
+.a4-paper.a4-landscape.a4-original {
+    width: min(100%,1100px) !important;
+    max-width: 100%;
+    aspect-ratio: 297/210 !important;
+    height: auto !important;
+    overflow: hidden !important;
+    border: 0 !important;
+    background: #fffaf0 !important;
+    position: relative
+}
+
+    .a4-paper.a4-landscape.a4-original #riddle-image {
+        display: block;
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: contain !important;
+        position: static !important;
+        max-width: none !important;
+        max-height: none !important
+    }
+
+
+/* Riddle images are complete original slides: nothing is drawn on top. */
+.modal-card:has(.a4-original) {
+    max-width: min(1200px,calc(100vw - 16px));
+    padding: 12px
+}
+
+.a4-paper.a4-original {
+    background: #fff !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+    width: min(100%,1100px) !important;
+    aspect-ratio: 297/210 !important;
+    height: auto !important
+}
+
+    .a4-paper.a4-original #riddle-image {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: contain !important;
+        display: block;
+        position: static !important
+    }
+
+
+/* FINAL RIDDLE TEMPLATE: separate header and artwork, no overlays. */
+.modal-card:has(.riddle-sheet) {
+    max-width: min(1260px,calc(100vw - 16px));
+    padding: 12px
+}
+
+.riddle-sheet {
+    width: min(100%,1120px);
+    margin: 0 auto;
+    background: #f7f1e5;
+    border: 3px solid #28543e;
+    border-radius: 12px;
+    padding: clamp(12px,2.2vw,24px);
+    box-sizing: border-box;
+    color: #244b3b
+}
+
+.riddle-sheet-header {
+    background: #28543e;
+    color: white;
+    text-align: center;
+    border-radius: 8px;
+    padding: 12px 18px;
+    margin-bottom: 14px
+}
+
+    .riddle-sheet-header .riddle-day {
+        color: #e8d6a1;
+        font-size: 12px;
+        letter-spacing: .14em;
+        font-weight: 700
+    }
+
+    .riddle-sheet-header h2 {
+        color: white;
+        margin: 5px 0 7px;
+        font: 700 clamp(21px,3vw,34px)/1.15 Georgia,serif
+    }
+
+    .riddle-sheet-header p {
+        color: #fff7e6;
+        margin: 0;
+        font: clamp(13px,1.45vw,17px)/1.4 Georgia,serif
+    }
+
+.riddle-sheet-art {
+    background: white;
+    border: 1px solid #d8c9a8;
+    min-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden
+}
+
+    .riddle-sheet-art #riddle-image {
+        display: block;
+        position: static;
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+        max-height: none;
+        object-fit: contain;
+        object-position: center
+    }
+
+    .riddle-sheet-art .a4-placeholder {
+        display: none
+    }
+
+.riddle-instructions {
+    white-space: pre-line;
+    line-height: 1.65;
+}
+
+/* Paragraph spacing for Lumi's riddle instructions */
+.riddle-sheet-header p {
+    white-space: pre-line;
+    line-height: 1.5;
+}
+
+
+/* Lumi's riddles — one A4 landscape page */
+
+
+
+
+
+
+/* ===== Lumi 2026: responsive mobile experience ===== */
+.rotate-hint {
+    display: none
+}
+
+.story-back {
+    display: block;
+    margin: 0 auto 14px;
+    background: transparent;
+    border: 1px solid #a9b7b0;
+    color: #2b5347;
+    border-radius: 999px;
+    padding: 10px 18px
+}
+
+.riddle-sheet-art #riddle-image {
+    object-fit: contain !important
+}
+
+.paper-tools {
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 5px 42px 12px 0
+}
+
+    .paper-tools button {
+        min-height: 42px
+    }
+
+.top-actions button {
+    min-height: 42px
+}
+
+.riddle-sheet-header p {
+    white-space: pre-line
+}
+
+@media(max-width:700px) {
+    .calendar-page {
+        padding: 12px 12px 30px
+    }
+
+    .topbar {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 9px 10px 12px;
+        background: #071b2b66;
+        border: 1px solid #e4c38a44;
+        border-radius: 17px
+    }
+
+        .topbar .brand {
+            font-size: 13px;
+            letter-spacing: .04em;
+            line-height: 1.3
+        }
+
+    .top-actions {
+        display: grid;
+        grid-template-columns: 44px repeat(3,minmax(0,1fr));
+        gap: 6px;
+        width: 100%
+    }
+
+        .top-actions button {
+            font: 12px/1.2 system-ui,sans-serif;
+            padding: 9px 5px;
+            min-width: 0;
+            border-radius: 12px;
+            background: #ffffff12
+        }
+
+        .top-actions .sound-toggle {
+            padding: 8px 2px;
+            min-width: 0
+        }
+
+    .calendar-heading {
+        margin: 16px auto 14px;
+        gap: 8px;
+        text-align: left
+    }
+
+        .calendar-heading .elf-small {
+            width: 78px;
+            height: 86px
+        }
+
+        .calendar-heading h1 {
+            font-size: clamp(23px,6.4vw,32px);
+            line-height: 1.08
+        }
+
+        .calendar-heading p {
+            font-size: 13px;
+            line-height: 1.4
+        }
+
+        .calendar-heading .eyebrow {
+            font-size: 10px
+        }
+
+    .leaderboard {
+        margin: 12px auto 18px;
+        width: 100%;
+        padding: 13px;
+        border-radius: 16px
+    }
+
+        .leaderboard h2 {
+            font-size: 18px
+        }
+
+        .leaderboard p {
+            font-size: 13px;
+            line-height: 1.45
+        }
+
+    .leaderboard-heading button {
+        font-size: 12px;
+        padding: 8px 11px
+    }
+
+    .doors {
+        grid-template-columns: repeat(4,minmax(0,1fr));
+        gap: 9px
+    }
+
+    .door {
+        height: auto;
+        aspect-ratio: .79;
+        min-height: 0;
+        border-radius: 40% 40% 9px 9px;
+        border-width: 1.5px
+    }
+
+        .door strong {
+            font-size: clamp(23px,7vw,36px)
+        }
+
+    .door-ornament, .door-bottom {
+        font-size: 14px
+    }
+
+    .door-knob {
+        width: 6px;
+        height: 6px;
+        right: 7px
+    }
+
+    .calendar-footer {
+        margin: 18px 4px
+    }
+
+    .modal-backdrop {
+        padding: 0;
+        display: block;
+        overflow: hidden
+    }
+
+    .modal-card, .modal-card:has(.riddle-sheet) {
+        width: 100%;
+        max-width: none;
+        max-height: none;
+        height: 100dvh;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+        overflow: auto;
+        padding: calc(12px + env(safe-area-inset-top)) 17px calc(18px + env(safe-area-inset-bottom));
+    }
+
+    .story-view .modal-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        background: linear-gradient(165deg,#fff9ed,#edf4ed);
+    }
+
+    .story-view .close {
+        position: fixed;
+        top: calc(12px + env(safe-area-inset-top));
+        right: 14px
+    }
+
+    .door-modal-heading {
+        padding: 25px 8px 8px
+    }
+
+        .door-modal-heading .elf {
+            height: min(23dvh,140px);
+            width: auto
+        }
+
+        .door-modal-heading h2 {
+            font-size: clamp(25px,7vw,34px)
+        }
+
+        .door-modal-heading p {
+            font-size: clamp(16px,4.5vw,19px);
+            line-height: 1.6
+        }
+
+    .open-riddle {
+        width: min(100%,330px);
+        min-height: 54px;
+        margin: 8px auto 12px
+    }
+
+    .send-row {
+        margin-top: 8px
+    }
+
+    .riddle-view .modal-card {
+        display: flex;
+        flex-direction: column;
+        background: #102e26;
+        color: #fff;
+        gap: 6px;
+        padding: calc(10px + env(safe-area-inset-top)) 8px calc(10px + env(safe-area-inset-bottom))
+    }
+
+    .riddle-view .close {
+        position: fixed;
+        right: 8px;
+        top: calc(8px + env(safe-area-inset-top));
+        width: 34px;
+        height: 34px
+    }
+
+    .paper-tools {
+        flex: 0 0 auto;
+        margin: 0 42px 0 0;
+        gap: 6px;
+        justify-content: space-between
+    }
+
+        .paper-tools button {
+            font: 12px system-ui,sans-serif;
+            padding: 7px 9px;
+            min-height: 36px
+        }
+
+        .paper-tools span {
+            font-size: 12px
+        }
+
+    .rotate-hint {
+        display: block;
+        text-align: center;
+        color: #e9ddbc;
+        font: 12px/1.3 system-ui,sans-serif;
+        margin: 3px 0
+    }
+
+    .riddle-sheet {
+        width: 100%;
+        flex: 1 1 auto;
+        min-height: 0;
+        margin: 0;
+        padding: 7px;
+        border-width: 1px;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        overflow: auto
+    }
+
+    .riddle-sheet-header {
+        padding: 9px 10px;
+        margin-bottom: 6px;
+        flex: 0 0 auto
+    }
+
+        .riddle-sheet-header h2 {
+            font-size: 20px;
+            margin: 3px 0 5px
+        }
+
+        .riddle-sheet-header p {
+            font-size: 13px;
+            line-height: 1.4
+        }
+
+    .riddle-sheet-art {
+        flex: 1 0 auto;
+        min-height: 150px
+    }
+
+        .riddle-sheet-art #riddle-image {
+            height: auto;
+            max-height: none;
+            width: 100%
+        }
+
+    .riddle-view .modal-hint {
+        display: none
+    }
+}
+
+@media(max-width:700px) and (orientation:landscape) {
+    .riddle-view .modal-card {
+        padding: calc(3px + env(safe-area-inset-top)) 6px calc(3px + env(safe-area-inset-bottom));
+        gap: 3px;
+        overflow: hidden
+    }
+
+    .riddle-view .close {
+        top: 3px;
+        right: 4px;
+        width: 30px;
+        height: 30px;
+        font-size: 23px
+    }
+
+    .riddle-view .paper-tools {
+        min-height: 30px;
+        margin-right: 34px
+    }
+
+        .riddle-view .paper-tools button {
+            min-height: 28px;
+            padding: 3px 9px
+        }
+
+    .riddle-view .rotate-hint {
+        display: none
+    }
+
+    .riddle-view .riddle-sheet {
+        flex: 1 1 auto;
+        min-height: 0;
+        overflow: hidden;
+        padding: 3px;
+        display: flex;
+        flex-direction: column
+    }
+
+    .riddle-view .riddle-sheet-header {
+        padding: 4px 7px;
+        margin-bottom: 3px;
+        max-height: 33%;
+        overflow: auto
+    }
+
+        .riddle-view .riddle-sheet-header .riddle-day {
+            font-size: 9px
+        }
+
+        .riddle-view .riddle-sheet-header h2 {
+            font-size: clamp(13px,2.6vh,18px);
+            margin: 1px 0
+        }
+
+        .riddle-view .riddle-sheet-header p {
+            font-size: clamp(9px,1.8vh,12px);
+            line-height: 1.15
+        }
+
+    .riddle-view .riddle-sheet-art {
+        flex: 1 1 auto;
+        min-height: 0;
+        overflow: hidden
+    }
+
+        .riddle-view .riddle-sheet-art #riddle-image {
+            height: 100%;
+            width: 100%;
+            object-fit: contain
+        }
+}
+
+@media(max-width:380px) {
+    .top-actions button {
+        font-size: 11px
+    }
+
+    .doors {
+        gap: 7px
+    }
+}
+
+@media print {
+    @page {
+        size: A4 landscape;
+        margin: 0
+    }
+
+    html, body {
+        width: 297mm !important;
+        height: 210mm !important;
+        min-height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: hidden !important;
+        background: white !important
+    }
+
+    #winter-background, .welcome-page, .calendar-page, .film-page, .floating-snow {
+        display: none !important
+    }
+
+    #app {
+        width: 297mm !important;
+        height: 210mm !important;
+        margin: 0 !important;
+        padding: 0 !important
+    }
+
+    .modal-backdrop {
+        position: static !important;
+        display: block !important;
+        width: 297mm !important;
+        height: 210mm !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: white !important;
+        overflow: hidden !important
+    }
+
+    .modal-card, .modal-card:has(.riddle-sheet) {
+        position: static !important;
+        display: block !important;
+        width: 297mm !important;
+        height: 210mm !important;
+        max-width: none !important;
+        max-height: none !important;
+        min-height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: 0 !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        overflow: hidden !important;
+        background: white !important
+    }
+
+        .modal-card > *:not(.riddle-sheet) {
+            display: none !important
+        }
+
+    .riddle-sheet {
+        width: 297mm !important;
+        height: 209mm !important;
+        max-width: none !important;
+        max-height: none !important;
+        box-sizing: border-box !important;
+        margin: 0 !important;
+        padding: 4mm !important;
+        border: 1px solid #28543e !important;
+        border-radius: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        overflow: hidden !important;
+        break-inside: avoid !important;
+        page-break-inside: avoid !important
+    }
+
+    .riddle-sheet-header {
+        flex: 0 0 auto !important;
+        padding: 2mm 4mm !important;
+        margin-bottom: 2mm !important
+    }
+
+        .riddle-sheet-header h2 {
+            font-size: 16pt !important;
+            margin: 1mm 0 !important
+        }
+
+        .riddle-sheet-header p {
+            white-space: pre-line !important;
+            font-size: 9pt !important;
+            line-height: 1.2 !important;
+            margin: 0 !important
+        }
+
+    .riddle-sheet-art {
+        flex: 1 1 auto !important;
+        min-height: 0 !important;
+        overflow: hidden !important
+    }
+
+        .riddle-sheet-art #riddle-image {
+            display: block !important;
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: contain !important
+        }
+}
