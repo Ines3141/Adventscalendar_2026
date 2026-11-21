@@ -4,4 +4,7 @@
 window.LUMI_LEADERBOARD = [
   { name: "Me :)", stars: 0 }
   { name: "Estelle", stars: 0 },
+  { name: "Sonja", stars: 0 },
+    { name: "Marte", stars: 0 },
+  { name: "Tauri", stars: 0 },
 ];
